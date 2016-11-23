@@ -20,6 +20,7 @@ void	ft_filltab(const char *src, char **dst)
 
 	i = 0;
 	x = 0;
+	y = 0;
 	while (src[i])
 	{
 		if (src[i] == '\n' && src[i - 1] == '\n')
