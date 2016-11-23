@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_in.c                                       :+:      :+:    :+:   */
+/*   ft_putintab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 16:24:41 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 16:24:47 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/22 15:44:36 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/22 15:44:37 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_read_in(const char *src, t_list *lst)
+char	**ft_putintab(const char *s, size_t count)
 {
-	int		fd;
-	char	buf;
-	size_t	i;
+	char	**rs;
+	size_t	len;
 
-	fd = open(src, O_RDONLY);
-	if (fd < 3)
-		return ;
-	buf = '\0';
-	i = 0;
-	while (read(fd, &buf, 1))
-	{
-		append_list(&lst, buf, i);
-		i++;
-	}
+	len = 20;
+	rs = ft_tabinit(count, len);
+	if (!rs)
+		return (NULL);
+	ft_filltab(s, rs);
+	return (rs);
 }

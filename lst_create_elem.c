@@ -18,10 +18,10 @@ t_list	*lst_create_elem(size_t size)
 
 	lst = (t_list*)malloc(sizeof(t_list));
 	if (!lst)
-		exit(1);
+		return (NULL);
 	lst->str = ft_strnew(size);
 	if (!(lst->str))
-		exit(1);
+		return (NULL);
 	lst->buf_size = size;
 	return (lst);
 }

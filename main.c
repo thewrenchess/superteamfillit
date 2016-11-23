@@ -15,15 +15,30 @@
 int	main(int arc, char **arv)
 {
 	t_list	*lst;
+	char	**tab;
+	size_t	count;
+	size_t	i;	//DELETE
 
+	i = 0;	//DELETE
+	count = 26;	//DELETE
 	if (arc != 2 || !arv[1])
 	{
 		USAGE;
 		return (1);
 	}
 	lst = lst_create_elem(63);
+	if (!lst)
+		return (1);
 	ft_read_in(arv[1], lst);
-	ft_putstr(lst->str);
+	tab = ft_putintab(lst->str, count);
+	if (!tab)
+		return (1);
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		i++;
+	}
 	free(lst->str);
 	free(lst);
 	return (0);

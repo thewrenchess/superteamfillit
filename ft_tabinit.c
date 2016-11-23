@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_in.c                                       :+:      :+:    :+:   */
+/*   ft_tabinit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 16:24:41 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 16:24:47 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/16 20:05:38 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/16 20:05:40 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_read_in(const char *src, t_list *lst)
+char	**ft_tabinit(size_t count, size_t len)
 {
-	int		fd;
-	char	buf;
+	char	**rs;
 	size_t	i;
 
-	fd = open(src, O_RDONLY);
-	if (fd < 3)
-		return ;
-	buf = '\0';
+	rs = (char**)malloc(sizeof(char*) * (count + 1));
+	if (!rs)
+		return (NULL);
 	i = 0;
-	while (read(fd, &buf, 1))
+	while (i < count)
 	{
-		append_list(&lst, buf, i);
+		rs[i] = ft_strnew(len);
+		if (!rs[i])
+			return (NULL);
 		i++;
 	}
+	rs[i] = (char*)malloc(sizeof(NULL));
+	rs[i] = NULL;
+	return (rs);
 }

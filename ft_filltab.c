@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_in.c                                       :+:      :+:    :+:   */
+/*   ft_filltab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 16:24:41 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 16:24:47 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/22 15:47:25 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/22 15:47:27 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_read_in(const char *src, t_list *lst)
+void	ft_filltab(const char *src, char **dst)
 {
-	int		fd;
-	char	buf;
 	size_t	i;
+	size_t	x;
+	size_t	y;
 
-	fd = open(src, O_RDONLY);
-	if (fd < 3)
-		return ;
-	buf = '\0';
 	i = 0;
-	while (read(fd, &buf, 1))
+	x = 0;
+	while (src[i])
 	{
-		append_list(&lst, buf, i);
+		if (src[i] == '\n' && src[i - 1] == '\n')
+		{
+			x++;
+			y = 0;
+		}
+		else
+		{
+			if (src[i] == '#')
+				dst[x][y] = x + 'A';
+			else
+				dst[x][y] = src[i];
+			y++;
+		}
 		i++;
 	}
 }

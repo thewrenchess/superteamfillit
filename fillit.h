@@ -37,5 +37,8 @@ t_list			*lst_create_elem(size_t buf_size);
 char			*ft_strcpy(char *dst, const char *src);
 void			append_list(t_list **lst, char c, size_t i);
 void			ft_read_in(const char *src, t_list *lst);
+char			**ft_tabinit(size_t count, size_t len);
+void			ft_filltab(const char *src, char **dst);
+char			**ft_putintab(const char *s, size_t count);
 
 #endif
