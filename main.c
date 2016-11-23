@@ -31,8 +31,8 @@ int	main(int arc, char **arv)
 	tab = ft_putintab(lst->str, count);
 	if (!tab)
 		return (1);
-	ft_freeinputlst(lst);
+	ft_freeinputlst(&lst);
 	ft_thinkhub(tab, count);
-	ft_freetab(tab);
+	ft_freetab(&tab);
 	return (0);
 }

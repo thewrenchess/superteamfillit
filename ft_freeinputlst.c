@@ -12,8 +12,11 @@
 
 #include "fillit.h"
 
-void	ft_freeinputlst(t_list *lst)
+void	ft_freeinputlst(t_list **lst)
 {
-	free(lst->str);
-	free(lst);
+	if (!*lst)
+		return ;
+	free((*lst)->str);
+	free(*lst);
+	*lst = NULL;
 }

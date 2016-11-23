@@ -12,16 +12,18 @@
 
 #include "fillit.h"
 
-void	ft_freetab(char **tab)
+void	ft_freetab(char ***tab)
 {
 	size_t	i;
 
+	if (!*tab || !**tab)
+		return ;
 	i = 0;
-	while (tab[i])
+	while ((*tab)[i])
 	{
-		free(tab[i]);
+		free((*tab)[i]);
 		i++;
 	}
-	free(tab);
-	tab = NULL;
+	free(*tab);
+	*tab = NULL;
 }
