@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findside.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 11:08:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 11:08:58 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/08 18:27:55 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/08 18:27:57 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	ft_findside(const size_t count)
+void	ft_lstdel(t_link **alnk)
 {
-	size_t	i;
-	size_t	total;
+	t_link	*temp1;
+	t_link	*temp2;
 
-	total = count * 4;
-	i = 1;
-	while (i * i < total)
-		i++;
-	return (i);
+	temp1 = *alnk;
+	while (temp1)
+	{
+		temp2 = temp1->next;
+		free(temp1->sqr);
+		free(temp1);
+		temp1 = temp2;
+	}
+	*alnk = temp1;
+	*alnk = NULL;
 }

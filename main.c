@@ -18,7 +18,7 @@ int	main(int arc, char **arv)
 	char	**tab;
 	size_t	count;
 
-	count = 26;	//DELETE
+	count = 1;	//DELETE
 	if (arc != 2 || !arv[1])
 	{
 		USAGE;
@@ -32,7 +32,7 @@ int	main(int arc, char **arv)
 	if (!tab)
 		return (1);
 	ft_freeinputlst(&lst);
-	ft_thinkhub(tab, count);
+	secondmain(tab, count);
 	ft_freetab(&tab);
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-t_link	*ft_newlink(char *str)
+t_link	*ft_newlink(const char *str)
 {
 	t_link	*lnk;
 

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-char	**ft_putintab(const char *s, size_t count)
+char	**ft_putintab(const char *s, const size_t count)
 {
 	char	**rs;
 	size_t	len;

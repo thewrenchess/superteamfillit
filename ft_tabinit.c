@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-char	**ft_tabinit(size_t count, size_t len)
+char	**ft_tabinit(const size_t count, const size_t len)
 {
 	char	**rs;
 	size_t	i;

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-char	*ft_makesqr(size_t side)
+char	*ft_makesqr(const size_t side)
 {
 	char	*rs;
 	size_t	len;

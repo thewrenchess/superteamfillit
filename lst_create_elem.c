@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-t_list	*lst_create_elem(size_t size)
+t_list	*lst_create_elem(const size_t size)
 {
 	t_list	*lst;
 

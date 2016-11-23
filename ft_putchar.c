@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(const char c)
 {
 	write(1, &c, 1);
 }

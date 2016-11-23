@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findside.c                                      :+:      :+:    :+:   */
+/*   secondmain.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 11:08:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 11:08:58 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/23 10:21:46 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/23 10:21:47 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	ft_findside(const size_t count)
+void	secondmain(char **tab, const size_t count)
 {
-	size_t	i;
-	size_t	total;
+	char	*sqr;
+	size_t	side;
+	t_link	*alnk;
+//	char	rs;
 
-	total = count * 4;
-	i = 1;
-	while (i * i < total)
-		i++;
-	return (i);
+	(void)tab;
+	side = ft_findside(count);
+	sqr = ft_makesqr(side);
+	alnk = ft_newlink(ft_makesqr(side));
+	if (!alnk)
+		return ;
+//	rs = thinkhub(tab, alnk);
+//	ft_putchar(rs);
+	ft_putstr(alnk->sqr);
+	ft_lstdel(&alnk);
+	free(sqr);
 }
