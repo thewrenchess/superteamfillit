@@ -44,6 +44,6 @@ void			ft_freeinputlst(t_list *lst);
 size_t			ft_findside(size_t count);
 char			*ft_makesqr(size_t side);
 void			ft_thinkhub(char **tab, size_t count);
-char			**ft_freetab(char **tab);
+void			ft_freetab(char **tab);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-char	**ft_freetab(char **tab)
+void	ft_freetab(char **tab)
 {
 	size_t	i;
 
@@ -24,5 +24,4 @@ char	**ft_freetab(char **tab)
 	}
 	free(tab);
 	tab = NULL;
-	return (tab);
 }
