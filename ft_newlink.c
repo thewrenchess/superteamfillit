@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_thinkhub.c                                      :+:      :+:    :+:   */
+/*   ft_newlink.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 10:21:46 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 10:21:47 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/23 14:02:40 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/23 14:02:41 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_thinkhub(char **tab, size_t count)
+t_link	*ft_newlink(char *str)
 {
-	char	*sqr;
-	size_t	side;
-	t_link	*alnk;
+	t_link	*lnk;
 
-	(void)tab;
-	side = ft_findside(count);
-	sqr = ft_makesqr(side);
-	alnk = ft_newlink(ft_makesqr(side));
-	if (!alnk)
-		return ;
-	ft_putstr(alnk->sqr);
-	free(sqr);
+	lnk = (t_link*)malloc(sizeof(lnk));
+	if (!lnk)
+		return (NULL);
+	lnk->sqr = ft_strnew(ft_strlen(str));
+	lnk->sqr = ft_strcpy(lnk->sqr, str);
+	lnk->next = NULL;
+	return (lnk);
 }

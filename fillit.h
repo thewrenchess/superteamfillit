@@ -57,6 +57,8 @@ char				**ft_putintab(const char *s, size_t count);
 void				ft_freeinputlst(t_list **lst);
 size_t				ft_findside(size_t count);
 char				*ft_makesqr(size_t side);
+size_t				ft_strlen(const char *s);
+t_link				*ft_newlink(char *str);
 void				ft_thinkhub(char **tab, size_t count);
 void				ft_freetab(char ***tab);
 

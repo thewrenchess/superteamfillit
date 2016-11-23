@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_thinkhub.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 10:21:46 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 10:21:47 by yherrera         ###   ########.fr       */
+/*   Created: 2016/10/31 16:03:42 by yherrera          #+#    #+#             */
+/*   Updated: 2016/10/31 16:03:43 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_thinkhub(char **tab, size_t count)
+size_t	ft_strlen(const char *s)
 {
-	char	*sqr;
-	size_t	side;
-	t_link	*alnk;
+	int	i;
 
-	(void)tab;
-	side = ft_findside(count);
-	sqr = ft_makesqr(side);
-	alnk = ft_newlink(ft_makesqr(side));
-	if (!alnk)
-		return ;
-	ft_putstr(alnk->sqr);
-	free(sqr);
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
