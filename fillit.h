@@ -40,5 +40,10 @@ void			ft_read_in(const char *src, t_list *lst);
 char			**ft_tabinit(size_t count, size_t len);
 void			ft_filltab(const char *src, char **dst);
 char			**ft_putintab(const char *s, size_t count);
+void			ft_freeinputlst(t_list **lst);
+size_t			ft_findside(size_t count);
+char			*ft_makesqr(size_t side);
+void			ft_thinkhub(char **tab, size_t count);
+void			ft_freetab(char ***tab);
 
 #endif
