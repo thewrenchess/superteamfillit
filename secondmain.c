@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_thinkhub.c                                      :+:      :+:    :+:   */
+/*   secondmain.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,16 @@
 
 #include "fillit.h"
 
-void	ft_thinkhub(char **tab, size_t count)
+void	secondmain(char **tab, const size_t count)
 {
-	char	*sqr;
 	size_t	side;
+	t_link	*alnk;
 
 	(void)tab;
 	side = ft_findside(count);
-	sqr = ft_makesqr(side);
-	ft_putstr(sqr);
-	free(sqr);
+	alnk = ft_newlink(ft_makesqr(side));
+	if (!alnk)
+		return ;
+	ft_putstr(alnk->sqr);
+	ft_lstdel(&alnk);
 }

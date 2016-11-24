@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findside.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 11:08:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 11:08:58 by yherrera         ###   ########.fr       */
+/*   Created: 2016/10/31 16:03:42 by yherrera          #+#    #+#             */
+/*   Updated: 2016/10/31 16:03:43 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	ft_findside(const size_t count)
+size_t	ft_strlen(const char *s)
 {
-	size_t	i;
-	size_t	total;
+	int	i;
 
-	total = count * 4;
-	i = 1;
-	while (i * i < total)
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
 		i++;
 	return (i);
 }

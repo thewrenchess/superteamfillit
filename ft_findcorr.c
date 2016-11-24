@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findside.c                                      :+:      :+:    :+:   */
+/*   ft_findcorr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 11:08:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 11:08:58 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/23 16:28:02 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/23 16:28:03 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	ft_findside(const size_t count)
+t_corr	ft_findcorr(const char *str)
 {
-	size_t	i;
-	size_t	total;
+	t_corr	acor;
 
-	total = count * 4;
-	i = 1;
-	while (i * i < total)
-		i++;
-	return (i);
+	acor.a = 0;
+	while (str[acor.a] < 'A' || str[acor.a] > 'Z')
+		acor.a++;
+	acor.b = acor.a + 1;
+	while (str[acor.b] < 'A' || str[acor.b] > 'Z')
+		acor.b++;
+	acor.c = acor.b + 1;
+	while (str[acor.c] < 'A' || str[acor.c] > 'Z')
+		acor.c++;
+	acor.d = acor.c + 1;
+	while (str[acor.d] < 'A' || str[acor.d] > 'Z')
+		acor.d++;
+	return (acor);
 }
