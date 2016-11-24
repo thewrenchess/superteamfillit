@@ -12,7 +12,21 @@
 
 #include "fillit.h"
 
-int	main(int arc, char **arv)
+static void	main_2nd(char **tab, const size_t count)
+{
+	size_t	side;
+	t_link	*alnk;
+
+	(void)tab;
+	side = ft_findside(count);
+	alnk = ft_newlink(ft_makesqr(side));
+	if (!alnk)
+		return ;
+	ft_putstr(alnk->sqr);
+	ft_lstdel(&alnk);
+}
+
+int			main(int arc, char **arv)
 {
 	t_list	*lst;
 	char	**tab;
@@ -32,7 +46,7 @@ int	main(int arc, char **arv)
 	if (!tab)
 		return (1);
 	ft_freeinputlst(&lst);
-	secondmain(tab, count);
+	main_2nd(tab, count);
 	ft_freetab(&tab);
 	return (0);
 }

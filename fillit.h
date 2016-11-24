@@ -61,7 +61,6 @@ size_t				ft_strlen(const char *s);
 t_link				*ft_newlink(const char *str);
 t_corr				ft_findcorr(const char *str);
 void				ft_lstdel(t_link **alnk);
-void				secondmain(char **tab, const size_t count);
 void				ft_freetab(char ***tab);
 
 #endif
