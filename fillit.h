@@ -59,6 +59,7 @@ size_t				ft_findside(const size_t count);
 char				*ft_makesqr(const size_t side);
 size_t				ft_strlen(const char *s);
 t_link				*ft_newlink(const char *str);
+t_corr				ft_findcorr(const char *str);
 void				ft_lstdel(t_link **alnk);
 void				secondmain(char **tab, const size_t count);
 void				ft_freetab(char ***tab);
