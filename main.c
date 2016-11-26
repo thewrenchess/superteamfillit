@@ -39,7 +39,7 @@ int			main(int arc, char **arv)
 	if (!lst)
 		return (1);
 	ft_read_in(arv[1], lst);
-	count = 2;	//CALL THIS!!!
+	count = 10;	//CALL THIS!!!
 	tab = ft_putintab(lst->str, count);
 	if (!tab)
 		return (1);

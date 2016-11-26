@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>	//DELETE
+
 static size_t	ft_isfilled(char *s, size_t i)
 {
 	while (s[i] != '.')
@@ -27,10 +27,10 @@ char			*batcave(char **tab, char *sqr, size_t side)
 
 	is = 0;
 	it = 0;
-	printf("square expands: side: %zu\n", side);
 	while (!(is >= side * (side + 1) - 4 && !it))
 	{
-		printf("is: %zu it: %zu\n", is, it);
+		ft_putstr(sqr);
+		ft_putchar('\n');
 		if (!tab[it])
 			return (sqr);
 		is = ft_isfilled(sqr, is);
