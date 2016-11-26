@@ -14,7 +14,7 @@
 
 static t_corr	ft_nullacor(t_corr *acor)
 {
-	(*acor).a = 27;
+	(*acor).a = 0;
 	(*acor).b = 0;
 	(*acor).c = 0;
 	(*acor).d = 0;
