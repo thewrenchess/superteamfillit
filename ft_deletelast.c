@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_deletelast.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/31 15:36:14 by yherrera          #+#    #+#             */
-/*   Updated: 2016/10/31 15:36:15 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/25 15:36:30 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/25 15:36:31 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+size_t	ft_deletelast(char *sqr, char *src)
 {
-	int	i;
+	size_t	i;
+	size_t	start;
+	char	c;
 
-	if (!dst || !src)
-		return (NULL);
 	i = 0;
-	while (src[i])
+	while (src[i] < 'A' || src[i] > 'Z')
+		i++;
+	c = src[i];
+	i = 0;
+	while (sqr[i] != c)
+		i++;
+	start = i;
+	while (sqr[i])
 	{
-		dst[i] = src[i];
+		if (sqr[i] == c)
+			sqr[i] = '.';
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (start + 1);
 }

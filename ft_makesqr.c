@@ -33,7 +33,7 @@ char	*ft_makesqr(const size_t side)
 		else
 		{
 			rs[i] = '.';
-			count ++;
+			count++;
 		}
 		i++;
 	}

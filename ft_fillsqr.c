@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newlink.c                                       :+:      :+:    :+:   */
+/*   ft_fillsqr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 14:02:40 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 14:02:41 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/25 15:29:14 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/25 15:29:16 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_link	*ft_newlink(const char *str)
+void	ft_fillsqr(char *sqr, char *src, t_corr acor)
 {
-	t_link	*lnk;
+	char	c;
+	size_t	i;
 
-	lnk = (t_link*)malloc(sizeof(lnk));
-	if (!lnk)
-		return (NULL);
-	lnk->sqr = ft_strnew(ft_strlen(str));
-	lnk->sqr = ft_strcpy(lnk->sqr, str);
-	lnk->next = NULL;
-	return (lnk);
+	i = 0;
+	while (src[i] < 'A' || src[i] > 'Z')
+		i++;
+	c = src[i];
+	sqr[acor.a] = c;
+	sqr[acor.b] = c;
+	sqr[acor.c] = c;
+	sqr[acor.d] = c;
 }

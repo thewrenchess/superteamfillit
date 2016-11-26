@@ -57,10 +57,13 @@ char				**ft_putintab(const char *s, const size_t count);
 void				ft_freeinputlst(t_list **lst);
 size_t				ft_findside(const size_t count);
 char				*ft_makesqr(const size_t side);
+t_corr				ft_movecorr(t_corr acor, size_t i);
+t_corr				ft_iffits(char *sqr, char *shape, size_t i, size_t side);
+void				ft_fillsqr(char *sqr, char *src, t_corr acor);
+size_t				ft_deletelast(char *sqr, char *src);
+char				*batcave(char **tab, char *sqr, size_t side);
 size_t				ft_strlen(const char *s);
-t_link				*ft_newlink(const char *str);
 t_corr				ft_findcorr(const char *str);
-void				ft_lstdel(t_link **alnk);
 void				ft_freetab(char ***tab);
 
 #endif
