@@ -12,9 +12,6 @@
 
 #include "fillit.h"
 
-// Needs debugging:
-// works but does not give the smallest square all the time
-
 static size_t	ft_isfilled(char *s, size_t i)
 {
 	while (s[i] != '.')
@@ -22,21 +19,29 @@ static size_t	ft_isfilled(char *s, size_t i)
 	return (i);
 }
 
+static int		ft_endofis(char *sqr, char **tab, int it, size_t *is)
+{
+	it--;
+	if (it >= 0)
+		*is = ft_deletelast(sqr, tab[it]);
+	return (it);
+}
+
 char			*batcave(char **tab, char *sqr, size_t side)
 {
 	size_t	is;
-	size_t	it;
+	int		it;
 	t_corr	acor;
 
 	is = 0;
 	it = 0;
-	while (!(is >= side * (side + 1) - 4 && !it))
+	while (!(it < 0))
 	{
 		if (!tab[it])
 			return (sqr);
 		is = ft_isfilled(sqr, is);
 		acor = ft_iffits(sqr, tab[it], is, side);
-		if (acor.a < 26)
+		if (acor.a != acor.b)
 		{
 			ft_fillsqr(sqr, tab[it], acor);
 			is = 0;
@@ -44,11 +49,8 @@ char			*batcave(char **tab, char *sqr, size_t side)
 		}
 		else if (is < side * (side + 1) - 4)
 			is++;
-		else if (is >= side * (side + 1) - 4 && it)
-		{
-			it--;
-			is = ft_deletelast(sqr, tab[it]);
-		}
+		else if (is >= side * (side + 1) - 4)
+			it = ft_endofis(sqr, tab, it, &is);
 	}
 	free(sqr);
 	return (batcave(tab, ft_makesqr(side + 1), side + 1));

@@ -49,7 +49,7 @@ static size_t	ft_checklines(char *str)
 
 	tindex = -1;
 	splindex = 0;
-	if (ft_strlen(str) >= 545)
+	if (ft_strlen(str) >= 546)
 		return (0);
 	tmp = ft_strsplit(str, '\n');
 	while (tmp[splindex])
