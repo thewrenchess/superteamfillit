@@ -18,7 +18,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>	//DELETE
+
 typedef	struct		s_list
 {
 	size_t			buf_size;

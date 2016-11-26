@@ -3,92 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 14:47:21 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/08 14:47:22 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/10 00:20:57 by tchan             #+#    #+#             */
+/*   Updated: 2016/11/10 00:20:58 by tchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static size_t	skip(const char *s, const char c)
+static int	ft_cw(char *s, char c)
 {
-	size_t	i;
+	int x;
+	int flag;
+	int wordcount;
 
-	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	return (i);
-}
-
-static size_t	skiprev(const char *s, const char c)
-{
-	size_t	i;
-
-	i = ft_strlen(s) - 1;
-	while (s[i] == c)
-		i--;
-	return (i);
-}
-
-static size_t	countsegment(const char *s,
-								const char c,
-								size_t a,
-								const size_t z)
-{
-	size_t	count;
-
-	count = 0;
-	while (a <= z)
+	x = 0;
+	flag = 0;
+	wordcount = 0;
+	while (s[x] != '\0')
 	{
-		if (s[a] == c)
+		if (s[x] == c)
 		{
-			count++;
-			while (a <= z && s[a] == c)
-				a++;
+			flag = 0;
+			x++;
 		}
-		a++;
+		else if (flag == 0 && s[x] != c)
+		{
+			flag = 1;
+			wordcount++;
+			x++;
+		}
+		else
+			x++;
 	}
-	return (count + 1);
+	return (wordcount);
 }
 
-static void		filltab(const char *s, const char c, char **rs, size_t a)
+static int	ft_wl(char *s, int index, char c)
 {
-	size_t	i;
-	size_t	j;
+	int x;
 
-	i = 0;
-	while (s[a])
+	x = 0;
+	while (s[index] != c && s[index] != '\0')
 	{
-		j = 0;
-		while (s[a] && s[a] != c)
-		{
-			rs[i][j] = s[a];
-			j++;
-			a++;
-		}
-		while (s[a] && s[a] == c)
-			a++;
-		i++;
+		index++;
+		x++;
 	}
+	return (x);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	size_t	a;
-	char	**rs;
-	size_t	z;
+	char	**str;
+	int		x[4];
 
-	if (!s)
+	ft_bzero(x, sizeof(int) * 4);
+	if (!s || !(str = (char**)malloc(sizeof(char*) * (ft_cw((char*)s, c)) + 1)))
 		return (NULL);
-	a = skip(s, c);
-	if (a == ft_strlen(s))
-		return (ft_tabinit(0, 0));
-	z = skiprev(s, c);
-	rs = ft_tabinit(countsegment(s, c, a, z), z - a + 1);
-	if (!rs)
-		return (NULL);
-	filltab(s, c, rs, a);
-	return (rs);
+	while (s[x[0]] != '\0')
+		if (s[x[0]] != c)
+		{
+			if (!(str[x[2]] = (char*)malloc(ft_wl((char*)s, x[0], c))))
+				return (NULL);
+			x[3] = ft_wl((char*)s, x[0], c);
+			while (++(x[1]) - 1 < x[3] && ++(x[0]))
+				str[(x[2])][(x[1]) - 1] = s[(x[0]) - 1];
+			str[(x[2])][(x[1]) - 1] = '\0';
+			x[1] = 0;
+			x[2]++;
+		}
+		else
+			(x[0])++;
+	str[x[2]] = NULL;
+	return (str);
 }
