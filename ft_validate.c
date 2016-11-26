@@ -13,6 +13,9 @@
 #include "fillit.h"
 #include "gtable.h"
 
+// Needs debugging:
+// works but requires one more new line at the end of input file.
+
 static void		ft_set_zero(int *w, int *x, int *y, int *z)
 {
 	*w = 0;

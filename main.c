@@ -36,7 +36,7 @@ int			main(int arc, char **arv)
 	if (!lst)
 		return (1);
 	ft_read_in(arv[1], lst);
-	count = ft_validate(arv[1]);
+	count = ft_validate(lst->str);
 	if (!count)
 		ERROR;
 	tab = ft_putintab(lst->str, count);

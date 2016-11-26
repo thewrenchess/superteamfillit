@@ -12,6 +12,9 @@
 
 #include "fillit.h"
 
+// Needs debugging:
+// works but does not give the smallest square all the time
+
 static size_t	ft_isfilled(char *s, size_t i)
 {
 	while (s[i] != '.')
