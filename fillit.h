@@ -18,7 +18,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
-
+# include <stdio.h>	//DELETE
 typedef	struct		s_list
 {
 	size_t			buf_size;
@@ -33,8 +33,17 @@ typedef struct		s_corr
 	size_t			d;
 }					t_corr;
 
-# define USAGE		ft_putstr("usage: ./fillit source_file\n");
-# define ERROR		ft_putstr("error\n");
+typedef struct		s_number_table
+{
+	size_t			tcount;
+	int				i;
+	int				hcount;
+	int				nlcount;
+	int				dcount;
+}					t_ntable;
+
+# define USAGE		{ft_putstr("usage: ./fillit source_file\n"); return (1);}
+# define ERROR		{ft_putstr("error\n"); return (1);}
 
 void				ft_putchar(const char c);
 void				ft_putstr(char const *s);
@@ -59,5 +68,12 @@ char				*batcave(char **tab, char *sqr, size_t side);
 size_t				ft_strlen(const char *s);
 t_corr				ft_findcorr(const char *str);
 void				ft_freetab(char ***tab);
+size_t				ft_validate(char *str);
+char				*ft_dot_strtrim(char *s);
+void				ft_remove_nl(char *str);
+size_t				ft_strlen(const char *str);
+int					ft_strcmp(char *str1, char *str2);
+char				*ft_strncpy(char *dest, const char *src, size_t n);
+char				**ft_strsplit(char const *s, char c);
 
 #endif

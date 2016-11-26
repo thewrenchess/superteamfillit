@@ -31,15 +31,14 @@ int			main(int arc, char **arv)
 	size_t	count;
 
 	if (arc != 2 || !arv[1])
-	{
 		USAGE;
-		return (1);
-	}
 	lst = lst_create_elem(63);
 	if (!lst)
 		return (1);
 	ft_read_in(arv[1], lst);
 	count = ft_validate(arv[1]);
+	if (!count)
+		ERROR;
 	tab = ft_putintab(lst->str, count);
 	if (!tab)
 		return (1);

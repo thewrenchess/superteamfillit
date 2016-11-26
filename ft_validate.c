@@ -53,7 +53,7 @@ static size_t	ft_checklines(char *str)
 	while (tmp[splindex])
 	{
 		while (++tindex < 5)
-			if (strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
+			if (ft_strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
 				return (0);
 		if (ft_strlen(tmp[splindex]) != 4)
 		{
