@@ -13,8 +13,6 @@
 #include "fillit.h"
 #include "gtable.h"
 
-#include <stdio.h>
-
 static void		ft_set_zero(int *w, int *x, int *y, int *z)
 {
 	*w = -1;
