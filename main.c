@@ -6,7 +6,7 @@
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 15:46:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 15:47:00 by yherrera         ###   ########.fr       */
+/*   Updated: 2016/11/25 17:37:24 by tchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			main(int arc, char **arv)
 	if (!lst)
 		return (1);
 	ft_read_in(arv[1], lst);
-	count = 1;	//CALL THIS!!!
+	count = ft_validate(arv[1]);
 	tab = ft_putintab(lst->str, count);
 	if (!tab)
 		return (1);
