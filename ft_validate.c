@@ -6,7 +6,7 @@
 /*   By: tchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:48:50 by tchan             #+#    #+#             */
-/*   Updated: 2016/11/21 14:48:53 by tchan            ###   ########.fr       */
+/*   Updated: 2016/11/26 10:02:37 by tchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static size_t	ft_checklines(char *str)
 	while (tmp[splindex])
 	{
 		while (++tindex < 5)
-			if (strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
+			if (ft_strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
 				return (0);
 		if (ft_strlen(tmp[splindex]) != 4)
 		{
