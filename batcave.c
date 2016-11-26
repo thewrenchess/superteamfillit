@@ -29,8 +29,6 @@ char			*batcave(char **tab, char *sqr, size_t side)
 	it = 0;
 	while (!(is >= side * (side + 1) - 4 && !it))
 	{
-		ft_putstr(sqr);
-		ft_putchar('\n');
 		if (!tab[it])
 			return (sqr);
 		is = ft_isfilled(sqr, is);

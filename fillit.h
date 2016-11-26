@@ -33,12 +33,6 @@ typedef struct		s_corr
 	size_t			d;
 }					t_corr;
 
-typedef struct		s_link
-{
-	char			*sqr;
-	struct s_link	*next;
-}					t_link;
-
 # define USAGE		ft_putstr("usage: ./fillit source_file\n");
 # define ERROR		ft_putstr("error\n");
 
