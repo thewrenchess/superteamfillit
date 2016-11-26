@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makesqr.c                                       :+:      :+:    :+:   */
+/*   ft_fillsqr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 20:09:34 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/22 20:09:35 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/25 15:29:14 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/25 15:29:16 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_makesqr(const size_t side)
+void	ft_fillsqr(char *sqr, char *src, t_corr acor)
 {
-	char	*rs;
-	size_t	len;
+	char	c;
 	size_t	i;
-	size_t	count;
 
-	len = side * (side + 1);
-	rs = ft_strnew(len);
 	i = 0;
-	count = 0;
-	while (i < len)
-	{
-		if (count == side)
-		{
-			rs[i] = '\n';
-			count = 0;
-		}
-		else
-		{
-			rs[i] = '.';
-			count++;
-		}
+	while (src[i] < 'A' || src[i] > 'Z')
 		i++;
-	}
-	return (rs);
+	c = src[i];
+	sqr[acor.a] = c;
+	sqr[acor.b] = c;
+	sqr[acor.c] = c;
+	sqr[acor.d] = c;
 }

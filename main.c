@@ -15,15 +15,13 @@
 static void	main_2nd(char **tab, const size_t count)
 {
 	size_t	side;
-	t_link	*alnk;
+	char	*sqr;
 
-	(void)tab;
 	side = ft_findside(count);
-	alnk = ft_newlink(ft_makesqr(side));
-	if (!alnk)
-		return ;
-	ft_putstr(alnk->sqr);
-	ft_lstdel(&alnk);
+	sqr = ft_makesqr(side);
+	sqr = batcave(tab, sqr, side);
+	// ft_putstr(sqr);
+	free(sqr);
 }
 
 int			main(int arc, char **arv)
@@ -41,7 +39,7 @@ int			main(int arc, char **arv)
 	if (!lst)
 		return (1);
 	ft_read_in(arv[1], lst);
-	count = 1;	//CALL THIS!!!
+	count = 2;	//CALL THIS!!!
 	tab = ft_putintab(lst->str, count);
 	if (!tab)
 		return (1);

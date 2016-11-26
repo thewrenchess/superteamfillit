@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makesqr.c                                       :+:      :+:    :+:   */
+/*   ft_deletelast.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 20:09:34 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/22 20:09:35 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/25 15:36:30 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/25 15:36:31 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_makesqr(const size_t side)
+size_t	ft_deletelast(char *sqr, char *src)
 {
-	char	*rs;
-	size_t	len;
 	size_t	i;
-	size_t	count;
+	size_t	start;
+	char	c;
 
-	len = side * (side + 1);
-	rs = ft_strnew(len);
 	i = 0;
-	count = 0;
-	while (i < len)
+	while (src[i] < 'A' || src[i] > 'Z')
+		i++;
+	c = src[i];
+	i = 0;
+	while (sqr[i] != c)
+		i++;
+	start = i;
+	while (sqr[i])
 	{
-		if (count == side)
-		{
-			rs[i] = '\n';
-			count = 0;
-		}
-		else
-		{
-			rs[i] = '.';
-			count++;
-		}
+		if (sqr[i] == c)
+			sqr[i] = '.';
 		i++;
 	}
-	return (rs);
+	return (start + 1);
 }

@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_makesqr.c                                       :+:      :+:    :+:   */
+/*   ft_movecorr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 20:09:34 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/22 20:09:35 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/24 18:31:12 by yherrera          #+#    #+#             */
+/*   Updated: 2016/11/24 18:31:13 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_makesqr(const size_t side)
+t_corr	ft_movecorr(t_corr acor, size_t i)
 {
-	char	*rs;
-	size_t	len;
-	size_t	i;
-	size_t	count;
+	size_t	diff;
 
-	len = side * (side + 1);
-	rs = ft_strnew(len);
-	i = 0;
-	count = 0;
-	while (i < len)
+	if (acor.a == i)
+		return (acor);
+	else if (acor.a > i)
 	{
-		if (count == side)
-		{
-			rs[i] = '\n';
-			count = 0;
-		}
-		else
-		{
-			rs[i] = '.';
-			count++;
-		}
-		i++;
+		diff = acor.a - i;
+		acor.a = acor.a - diff;
+		acor.b = acor.b - diff;
+		acor.c = acor.c - diff;
+		acor.d = acor.d - diff;
 	}
-	return (rs);
+	else
+	{
+		diff = i - acor.a;
+		acor.a = acor.a + diff;
+		acor.b = acor.b + diff;
+		acor.c = acor.c + diff;
+		acor.d = acor.d + diff;
+	}
+	return (acor);
 }
