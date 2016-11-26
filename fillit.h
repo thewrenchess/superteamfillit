@@ -6,7 +6,7 @@
 /*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 15:02:32 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 15:02:43 by yherrera         ###   ########.fr       */
+/*   Updated: 2016/11/26 10:01:15 by tchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ typedef struct		s_number_table
 {
 	size_t			tcount;
 	int				i;
-	int				hcount;
-	int				nlcount;
-	int				dcount;
+	int				hc;
+	int				nlc;
+	int				dc;
 }					t_ntable;
 
 # define USAGE		{ft_putstr("usage: ./fillit source_file\n"); return (1);}

@@ -13,12 +13,11 @@
 #include "fillit.h"
 #include "gtable.h"
 
-// Needs debugging:
-// works but requires one more new line at the end of input file.
+#include <stdio.h>
 
 static void		ft_set_zero(int *w, int *x, int *y, int *z)
 {
-	*w = 0;
+	*w = -1;
 	*x = 0;
 	*y = 0;
 	*z = 0;
@@ -52,11 +51,13 @@ static size_t	ft_checklines(char *str)
 
 	tindex = -1;
 	splindex = 0;
+	if (ft_strlen(str) >= 545)
+		return (0);
 	tmp = ft_strsplit(str, '\n');
 	while (tmp[splindex])
 	{
 		while (++tindex < 5)
-			if (ft_strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
+			if (strcmp(tmp[splindex], g_falsepositives[tindex]) == 0)
 				return (0);
 		if (ft_strlen(tmp[splindex]) != 4)
 		{
@@ -87,23 +88,25 @@ size_t			ft_validate(char *str)
 	char		*tmp;
 
 	n.tcount = 0;
-	ft_set_zero(&(n.i), &(n.nlcount), &(n.dcount), &(n.hcount));
+	ft_set_zero(&(n.i), &(n.nlc), &(n.dc), &(n.hc));
 	tmp = str;
 	if (ft_checklines(str) == 0)
 		return (0);
 	while (*str != '\0' && *tmp != '\0')
 	{
-		while (*tmp != '\0' && n.i++ < 20)
-			ft_inc_count(&tmp, &(n.nlcount), &(n.dcount), &(n.hcount));
-		if (n.i != 21 || n.nlcount != 4 || n.dcount != 12 || n.hcount != 4)
+		while (*tmp != '\0' && ++n.i < 20)
+			ft_inc_count(&tmp, &(n.nlc), &(n.dc), &(n.hc));
+		if (!(n.i == 20 || n.i == 19) || n.nlc != 4 || n.dc != 12 || n.hc != 4)
 			return (0);
 		if (ft_checkshape(str))
 			n.tcount++;
-		if (*(str + 22) != '\0')
-			str += 21;
-		if ((tmp++ + 1) == '\0' && n.tcount > 26)
+		else
 			return (0);
-		ft_set_zero(&(n.i), &(n.nlcount), &(n.dcount), &(n.hcount));
+		if (*(str += 20) == '\n')
+			str += 1;
+		if (*(++tmp) == '\0' && n.i == 20)
+			return (0);
+		ft_set_zero(&(n.i), &(n.nlc), &(n.dc), &(n.hc));
 	}
 	return (n.tcount);
 }
