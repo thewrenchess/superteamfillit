@@ -19,7 +19,7 @@ void	ft_read_in(const char *src, t_list *lst)
 	size_t	i;
 
 	fd = open(src, O_RDONLY);
-	if (fd < 3)
+	if (fd == -1)
 		return ;
 	buf = '\0';
 	i = 0;
@@ -28,4 +28,5 @@ void	ft_read_in(const char *src, t_list *lst)
 		append_list(&lst, buf, i);
 		i++;
 	}
+	close(fd);
 }
