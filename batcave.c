@@ -35,7 +35,7 @@ char			*batcave(char **tab, char *sqr, size_t side)
 
 	is = 0;
 	it = 0;
-	while (!(it < 0))
+	while (it >= 0)
 	{
 		if (!tab[it])
 			return (sqr);

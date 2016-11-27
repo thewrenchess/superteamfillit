@@ -24,6 +24,7 @@ static t_corr	ft_nullacor(t_corr *acor)
 t_corr			ft_iffits(char *sqr, char *shape, size_t i, size_t side)
 {
 	t_corr	acor;
+	size_t	limit;
 
 	if (!shape)
 		return (ft_nullacor(&acor));
@@ -33,11 +34,12 @@ t_corr			ft_iffits(char *sqr, char *shape, size_t i, size_t side)
 	acor.c = acor.c / 5 * (side + 1) + acor.c % 5;
 	acor.d = acor.d / 5 * (side + 1) + acor.d % 5;
 	acor = ft_movecorr(acor, i);
-	if (sqr[acor.a] != '.'
-		|| sqr[acor.b] != '.'
-		|| sqr[acor.c] != '.'
-		|| sqr[acor.d] != '.')
-		return (ft_nullacor(&acor));
-	else
+	limit = side * (side + 1) - 1;
+	if (acor.a < limit && sqr[acor.a] == '.'
+		&& acor.b < limit && sqr[acor.b] == '.'
+		&& acor.c < limit && sqr[acor.c] == '.'
+		&& acor.d < limit && sqr[acor.d] == '.')
 		return (acor);
+	else
+		return (ft_nullacor(&acor));
 }
