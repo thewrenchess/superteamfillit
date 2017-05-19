@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 15:02:32 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/26 10:01:15 by tchan            ###   ########.fr       */
+/*   Updated: 2017/05/19 13:33:28 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct		s_number_table
 void				ft_putchar(const char c);
 void				ft_putstr(char const *s);
 void				ft_bzero(void *s, const size_t n);
-void				*ft_memalloc(const size_t size);
 char				*ft_strnew(const size_t size);
 t_list				*lst_create_elem(const size_t buf_size);
 char				*ft_strcpy(char *dst, const char *src);

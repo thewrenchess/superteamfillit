@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iffits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 21:15:10 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/24 21:15:11 by yherrera         ###   ########.fr       */
+/*   Updated: 2017/05/19 13:31:03 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../hdrs/fillit.h"
 
 static t_corr	ft_nullacor(t_corr *acor)
 {

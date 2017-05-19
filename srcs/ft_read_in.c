@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_findside.c                                      :+:      :+:    :+:   */
+/*   ft_read_in.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 11:08:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/23 11:08:58 by yherrera         ###   ########.fr       */
+/*   Created: 2016/11/21 16:24:41 by yherrera          #+#    #+#             */
+/*   Updated: 2017/05/19 13:31:06 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../hdrs/fillit.h"
 
-size_t	ft_findside(const size_t count)
+void	ft_read_in(const char *src, t_list *lst)
 {
+	int		fd;
+	char	buf;
 	size_t	i;
-	size_t	total;
 
-	total = count * 4;
-	i = 1;
-	while (i * i < total)
+	fd = open(src, O_RDONLY);
+	if (fd == -1)
+		return ;
+	buf = '\0';
+	i = 0;
+	while (read(fd, &buf, 1))
+	{
+		append_list(&lst, buf, i);
 		i++;
-	return (i);
+	}
+	close(fd);
 }

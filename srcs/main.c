@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yherrera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 15:46:56 by yherrera          #+#    #+#             */
-/*   Updated: 2016/11/21 15:47:00 by yherrera         ###   ########.fr       */
+/*   Updated: 2017/05/19 13:31:26 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../hdrs/fillit.h"
 
 static void	main_2nd(char **tab, const size_t count)
 {

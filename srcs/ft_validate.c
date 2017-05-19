@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
+/*   ft_validate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 14:48:50 by tchan             #+#    #+#             */
-/*   Updated: 2016/11/26 10:02:37 by tchan            ###   ########.fr       */
+/*   Updated: 2017/05/19 13:31:22 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "gtable.h"
+#include "../hdrs/fillit.h"
+#include "../hdrs/gtable.h"
 
 static void		ft_set_zero(int *w, int *x, int *y, int *z)
 {

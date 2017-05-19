@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchan <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: yherrera <yherrera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 00:20:57 by tchan             #+#    #+#             */
-/*   Updated: 2016/11/10 00:20:58 by tchan            ###   ########.fr       */
+/*   Updated: 2017/05/19 13:31:13 by yherrera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../hdrs/fillit.h"
 
 static int	ft_cw(char *s, char c)
 {
